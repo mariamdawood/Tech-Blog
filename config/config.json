@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "07242022",
+    "database": "tech_blog",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "07242022",
+    "database": "tech_blog",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "07242022",
+    "database": "tech_blog",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}

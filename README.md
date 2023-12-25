@@ -19,7 +19,7 @@ Description
 - [Questions](#questions)
 
 ## Installation
-- npm install nodemon@latest express-handlebars@latest mysql2@latest sequelize@latest sequelize-cli@latest dotenv@latest bcrypt@latest express@latest express-session@latest connect-session-sequelize@latest npm install
+- npm install nodemon@latest express-handlebars@latest mysql2@latest sequelize@latest sequelize-cli@latest dotenv@latest bcrypt@latest express@latest express-session@latest connect-session-sequelize@latest
 
 ## Usage
 Usage
