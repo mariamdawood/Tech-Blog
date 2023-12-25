@@ -4,6 +4,3 @@ node_modules
 .vscode
 .DS_Store
 .env
-config/.config.json
-migrations
-seeders
