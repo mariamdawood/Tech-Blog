@@ -1,18 +1,22 @@
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
-const sequelize = process.env.JAWSDB_URL
-    ? new Sequelize(process.env.JAWSDB_URL, {
-        logging: console.log,
-    })
-    : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
-        host: 'localhost',
+const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, JAWSDB_URL } = process.env;
+
+const sequelize = new Sequelize(
+    JAWSDB_URL || DB_NAME,
+    JAWSDB_URL ? {} : DB_USER,
+    JAWSDB_URL ? {} : DB_PASSWORD,
+    {
+        host: JAWSDB_URL ? undefined : DB_HOST,
+        port: JAWSDB_URL ? undefined : DB_PORT,
         dialect: 'mysql',
         dialectOptions: {
             decimalNumbers: true,
         },
         logging: console.log,
-    });
+    }
+);
 
 sequelize
     .authenticate()
