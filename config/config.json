@@ -15,7 +15,6 @@
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql",
-    "url": "mysql://root:07242022@localhost:3306/tech_blog"
+    "dialect": "mysql"
   }
 }
