@@ -1,13 +1,13 @@
-# Tech Blog MVC [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+# Tech Blog [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
 Share your tech insights seamlessly with our CMS. Create, edit, and delete blog posts effortlessly. Engage in discussions through comments and explore a vibrant community. Your security is our priority with express-session. Join the conversation today! 🚀
 
 ## Deployed Application URL
-[Tech Blog MVC](https://tech-blog-by-mariam-ac876a5d1ff9.herokuapp.com/)
+[Tech Blog](https://tech-blog-by-mariam-ac876a5d1ff9.herokuapp.com/)
 
 ## Screenshot
-![Tech Blog MVC](./assets/images/overview.png)
+![Tech Blog](./assets/images/overview.png)
 
 ## Table of Contents
 - [Installation](#installation)
