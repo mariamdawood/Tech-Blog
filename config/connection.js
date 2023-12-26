@@ -26,16 +26,16 @@
 // module.exports = sequelize;
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
-    dialect: 'mysql',
-    dialectOptions: {
-        decimalNumbers: true,
-    },
-});
-// : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
-//     host: process.env.DB_HOST || 'localhost',
-//     dialect: 'mysql',
-// });
+const sequelize = process.env.DATABASE_URL
+    ? new Sequelize(process.env.DATABASE_URL, {
+        dialect: 'mysql',
+        dialectOptions: {
+            decimalNumbers: true,
+        },
+    })
+    : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+        dialect: 'mysql',
+    });
 
 sequelize
     .authenticate()
