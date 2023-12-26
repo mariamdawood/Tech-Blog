@@ -27,6 +27,16 @@ const seedPosts = async () => {
   }
 };
 
+const undoSeedPosts = async () => {
+  try {
+    await Post.destroy(postData);
+    console.log('Posts seeding undone successfully!');
+  } catch (error) {
+    console.error('Error undoing post seeding:', error);
+  }
+};
+
 module.exports = {
   up: seedPosts,
+  down: undoSeedPosts,
 };

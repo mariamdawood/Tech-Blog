@@ -27,6 +27,16 @@ const seedUsers = async () => {
   }
 };
 
+const undoSeedUsers = async () => {
+  try {
+    await User.destroy(userData);
+    console.log('Users seeding undone successfully!');
+  } catch (error) {
+    console.error('Error undoing user seeding:', error);
+  }
+};
+
 module.exports = {
   up: seedUsers,
+  down: undoSeedUsers
 };

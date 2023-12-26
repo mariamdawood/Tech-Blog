@@ -27,6 +27,16 @@ const seedComments = async () => {
   }
 };
 
+const undoSeedComments = async () => {
+  try {
+    await Comment.destroy(commentData);
+    console.log('Comments seeding undone successfully!');
+  } catch (error) {
+    console.error('Error undoing comment seeding:', error);
+  }
+};
+
 module.exports = {
   up: seedComments,
+  down: undoSeedComments,
 };
