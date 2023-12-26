@@ -6,10 +6,11 @@ const routes = require("./controllers")
 const sequelize = require("./config/connection")
 const exphbs = require("express-handlebars")
 const hbs = exphbs.create({ helpers: require("./utils/helpers") })
-// Creating express app and setting port
 
+// Creating express app and setting port
 const app = express()
 const PORT = process.env.PORT || 3001
+
 // Setting up session object with secret, cookie, and store
 const sess = {
     secret: 'Super secret secret',
@@ -21,26 +22,20 @@ const sess = {
     }),
 }
 
-// app.use(session(sess))
-
+// Middleware setup
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-
 app.use(express.static("public"))
 app.engine("handlebars", hbs.engine)
 app.set("view engine", "handlebars")
 
-app.use(
-    session({
-        secret: process.env.SECRET,
-        store: new SequelizeStore({ db: sequelize }),
-        resave: false,
-        saveUninitialized: false,
-    })
-)
+// Session middleware setup
+app.use(session(sess))
 
+// Routes setup
 app.use(routes)
 
+// Database synchronization and server start
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`))
 })
