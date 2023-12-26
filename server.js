@@ -5,7 +5,11 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store)
 const routes = require("./controllers")
 const sequelize = require("./config/connection")
 const exphbs = require("express-handlebars")
+const dotenv = require("dotenv")
 const hbs = exphbs.create({ helpers: require("./utils/helpers") })
+
+// Load environment variables from .env file
+dotenv.config()
 
 // Creating express app and setting port
 const app = express()
@@ -13,7 +17,7 @@ const PORT = process.env.PORT || 3001
 
 // Setting up session object with secret, cookie, and store
 const sess = {
-    secret: 'Super secret secret',
+    secret: process.env.SESSION_SECRET || 'SuperSecret', // Use a strong secret
     cookie: {},
     resave: false,
     saveUninitialized: true,
