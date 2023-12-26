@@ -1,22 +1,30 @@
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
-const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, JAWSDB_URL } = process.env;
+let sequelize;
 
-const sequelize = new Sequelize(
-    JAWSDB_URL || DB_NAME,
-    JAWSDB_URL ? {} : DB_USER,
-    JAWSDB_URL ? {} : DB_PASSWORD,
-    {
-        host: JAWSDB_URL ? undefined : DB_HOST,
-        port: JAWSDB_URL ? undefined : DB_PORT,
+if (process.env.JAWSDB_URL) {
+    // Production environment on Heroku
+    sequelize = new Sequelize(process.env.JAWSDB_URL, {
+        logging: console.log,
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false,
+            },
+        },
+    });
+} else {
+    // Local development environment
+    sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+        host: 'localhost',
         dialect: 'mysql',
         dialectOptions: {
             decimalNumbers: true,
         },
         logging: console.log,
-    }
-);
+    });
+}
 
 sequelize
     .authenticate()
