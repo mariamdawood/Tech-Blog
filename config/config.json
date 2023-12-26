@@ -14,10 +14,7 @@
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql",
-    "dialectOptions": {
-      "connectionLimit": 5
-    }
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres"
   }
 }
